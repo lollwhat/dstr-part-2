@@ -1,0 +1,63 @@
+# Build artifacts
+*.o
+*.obj
+*.exe
+*.dll
+*.lib
+*.so
+*.a
+*.out
+*.app
+*.bin
+*.pdb
+*.ilk
+*.exp
+
+# IDE-specific files
+.vs/
+.vscode/
+*.suo
+*.user
+*.ncb
+*.aps
+*.plg
+*.opensdf
+*.sdf
+*.ipch
+*.VC.db
+*.VC.VC.opendb
+
+# CMake build files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+CPackConfig.cmake
+_CPack_Packages/
+DartConfiguration.tcl
+Testing/
+install_manifest.txt
+
+# Editor-specific temporary files
+*~
+*.bak
+*.swp
+*.swo
+
+# Log files
+*.log
+
+# Dependency management files (e.g., Conan)
+conanbuildinfo.txt
+conanbuildinfo.cmake
+conan_imports_manifest.txt
+conan_package_info.txt
+conaninfo.txt
+conanws.yml
+conanws.yml.lock
+build/
+packages/
+
+# Operating System generated files
+.DS_Store
+Thumbs.db
