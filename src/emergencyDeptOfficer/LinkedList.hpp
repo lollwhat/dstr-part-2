@@ -20,15 +20,9 @@ class EmergencyPriorityQueue {
     Node *head;
 
     public:
-    EmergencyPriorityQueue() {
-        head = nullptr;
-    }
+    EmergencyPriorityQueue();
 
-    ~EmergencyPriorityQueue() {
-        while (head != nullptr) {
-            processCriticalCase();
-        }
-    }
+    ~EmergencyPriorityQueue();
 
     void logEmergencyCase(std::string name, std::string emergencyType, int priority);
 

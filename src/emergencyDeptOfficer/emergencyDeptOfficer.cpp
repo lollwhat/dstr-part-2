@@ -4,15 +4,39 @@
 
 void showMenu() {  
     std::cout << "\n ---------------------------------------------------" << std::endl;
-    std::cout << "\n           EMERGENCY DEPARTMENT OFFICER MENU        " << std::endl;
-    std::cout << "\n ---------------------------------------------------" << std::endl;
+    std::cout << "            EMERGENCY DEPARTMENT OFFICER MENU         " << std::endl;
+    std::cout << "   ---------------------------------------------------" << std::endl;
     std::cout << "1. Log Emergency Case\n";
     std::cout << "2. Process Most Critical Case\n";
     std::cout << "3. View Pending Emergency Cases\n";
-    std::cout << "4. Exit\n";
-    std::cout << "\n Please Enter Your Choice (0~3): \n";
+    std::cout << "0. Exit\n";
+    std::cout << "\nPlease Enter Your Choice (0~3): \n";
     
 
+}
+
+// Input data to LinkedList
+void logNewCase(EmergencyPriorityQueue &queue) {
+    std::string name, caseType, input;
+    int priority;
+
+    std::cout << "Enter Patient Name: " << std::endl;
+    std::getline(std::cin, name);
+
+    std::cout << "Enter Emergency Type ('Fracture', 'Cardiac'): " << std::endl;
+    std::getline(std::cin, caseType);
+    
+    std::cout << "Enter Case Priority (0~3) (Higher Number = High Priority): " << std::endl;
+    std::getline(std::cin, input);
+
+    try{
+        priority = std::stoi(input);
+    }catch (const std::exception& e) {
+        std::cout << "Invalid Priority, setting to 0." << std::endl;
+        priority = 0; 
+    }
+    
+    queue.logEmergencyCase(name, caseType, priority);
 }
 
 void emergencyOfficer() {
@@ -22,7 +46,19 @@ void emergencyOfficer() {
 
     while (choice != 0) {
         showMenu();
-        std::cin >> choice;
+
+        std::string input;
+        std::getline(std::cin, input);
+
+        try{
+            choice = std::stoi(input);
+        }
+        catch(const std::exception& e)
+        {
+            std::cout << "Invalid input, enter a number." << std::endl;
+            choice = -1;
+        }
+        
     
         switch (choice) {
             case 1:{
@@ -41,27 +77,6 @@ void emergencyOfficer() {
         std::cout << std::endl;
     }
 
-}
-
-// Input data to LinkedList
-void logNewCase(EmergencyPriorityQueue &queue) {
-    std::string name, caseType;
-    int priority;
-
-    std::cout << "Enter Patient Name: " << std::endl;
-    std::getline(std::cin, name);
-
-    std::cout << "Enter Emergency Type ('Fracture', 'Cardiac'): " << std::endl;
-    std::getline(std::cin, caseType);
-    
-    std::cout << "Enter Case Priority (Higher Number = High Priority): " << std::endl;
-    std::cin >> priority;
-    // while(!(std::cin >> priority)) {
-    //     std::cout << "Invalid Input. Enter a number.";
-    //     std::cin.clear();
-    // }
-    
-    queue.logEmergencyCase(name, caseType, priority);
 }
 
 EmergencyPriorityQueue::EmergencyPriorityQueue() {
@@ -131,6 +146,7 @@ void EmergencyPriorityQueue::processCriticalCase() {
     delete temp;
 
     std::cout << "Processing most critical case: " << processedName << " (Priority: " << processedPriority << ")" << std::endl;
+    std::cout << " --- Case Successfully Processed --- " << std::endl;
 }
 
 void EmergencyPriorityQueue::viewPendingCase() {
