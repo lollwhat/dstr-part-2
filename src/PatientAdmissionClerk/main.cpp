@@ -4,8 +4,7 @@
 #include "Header/queue/PatientQueue.hpp"
 #include "Header/utils/utils.hpp"
 
-// Compile command: g++ -std=c++11 -Wall -Wextra -Isrc/Header src/core/models/Patient.cpp src/core/queue/PatientQueue.cpp src/core/utils/utils.cpp src/main.cpp -o main.exe
-// ./main
+// Individual compile command (directory must be in root folder): g++ -std=c++11 -Wall -Wextra -Isrc/PatientAdmissionClerk/Header src/PatientAdmissionClerk/core/models/Patient.cpp src/PatientAdmissionClerk/core/queue/PatientQueue.cpp src/PatientAdmissionClerk/core/utils/utils.cpp src/PatientAdmissionClerk/main.cpp -o main.exe
 int main() {
     PatientQueue queue;
     int choice;
