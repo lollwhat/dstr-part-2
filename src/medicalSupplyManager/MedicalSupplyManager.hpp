@@ -1,15 +1,18 @@
 #pragma once
+#include <stdexcept>
 
 template <typename T>
-class CustomStack{
+class MedicalSupplyManager {
 public:
-    CustomStack();
-    ~CustomStack();
+    MedicalSupplyManager();
+    ~MedicalSupplyManager();
 
+    // Pushes a new item onto the top of the stack
     void push(const T& item);
+    // Removes and returns the top item from the stack
+    // Throws std::out_of_range if the stack is empty
     T pop();
     T top() const;
-    void view() const;
     bool isEmpty() const;
     int size() const;
 private:
@@ -21,19 +24,19 @@ private:
 };
 
 template <typename T>
-CustomStack<T>::CustomStack() {
+MedicalSupplyManager<T>::MedicalSupplyManager() {
     data = nullptr;
     topIndex = 0;
     capacity = 0;
 }
 
 template <typename T>
-CustomStack<T>::~CustomStack(){
+MedicalSupplyManager<T>::~MedicalSupplyManager(){
     delete[] data;
 }
 
 template <typename T>
-void CustomStack<T>::push(const T& item) {
+void MedicalSupplyManager<T>::push(const T& item) {
     if(topIndex >= capacity){
         resize();
     }
@@ -41,38 +44,33 @@ void CustomStack<T>::push(const T& item) {
 }
 
 template <typename T>
-T CustomStack<T>::pop() {
+T MedicalSupplyManager<T>::pop() {
+    if (isEmpty()) {
+        throw std::out_of_range("Stack is empty");
+    }
     return data[--topIndex];
 }
 
 template <typename T>
-T CustomStack<T>::top() const {
+T MedicalSupplyManager<T>::top() const {
     if(isEmpty()){
         throw std::out_of_range("Stack is empty");
     }
-    return data[topIndex-1]; //Zero-based index
+    return data[topIndex-1];
 }
 
 template <typename T>
-void CustomStack<T>::view() const {
-    for(int i = topIndex - 1; i >= 0; --i){
-        std::cout << data[i] << " ";
-    }
-    std::cout << std::endl;
-}
-
-template <typename T>
-bool CustomStack<T>::isEmpty() const {
+bool MedicalSupplyManager<T>::isEmpty() const {
     return topIndex == 0;
 }
 
 template<typename T>
-int CustomStack<T>::size() const {
+int MedicalSupplyManager<T>::size() const {
     return topIndex;
 }
 
 template <typename T>
-void CustomStack<T>::resize(){
+void MedicalSupplyManager<T>::resize(){
     int newCapacity = (capacity == 0) ? 1 : capacity * 2;
     T* newData = new T[newCapacity];
 
