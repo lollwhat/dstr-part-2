@@ -13,6 +13,7 @@ private:
   int itemCount;
   int capacity;
   int nextIdCounter;
+  void addNewAmbulance(std::string driverName);
 
 public:
   AmbulanceDispatcher();
@@ -21,7 +22,8 @@ public:
   void enqueue(Ambulance newAmbulance);
   Ambulance dequeue();
   
-  void registerAmbulance(std::string driver);
+  void registerAmbulance_Manual(std::string driver);
+  void registerAmbulance_Batch(int count);
   void rotateAmbulanceShift();
   void displayAmbulanceSchedule();
 };

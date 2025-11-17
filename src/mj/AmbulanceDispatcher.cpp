@@ -6,6 +6,7 @@ AmbulanceDispatcher::AmbulanceDispatcher() {
   rear = -1;
   itemCount = 0;
   capacity = MAX_AMBULANCES;
+  nextIdCounter = 1;
 }
 
 bool AmbulanceDispatcher::isEmpty() {
@@ -39,26 +40,50 @@ Ambulance AmbulanceDispatcher::dequeue() {
   return frontAmbulance;
 }
 
-void AmbulanceDispatcher::registerAmbulance(std::string driver) {
+void AmbulanceDispatcher::addNewAmbulance(std::string driverName) {
   if (isFull()) {
-    std::cerr << "Hanger is full" << std::endl;
+    std::cerr << "Hanger is full. Cannot add more ambulances." << std::endl;
     return;
   }
 
   std::string id = "AMB-";
   if (nextIdCounter < 10) {
-      id += "00" + std::to_string(nextIdCounter); // AMB-001
+    id += "00" + std::to_string(nextIdCounter); // AMB-001
   } else if (nextIdCounter < 100) {
-      id += "0" + std::to_string(nextIdCounter); // AMB-010
+    id += "0" + std::to_string(nextIdCounter); // AMB-010
   } else {
-      id += std::to_string(nextIdCounter); // AMB-100
+    id += std::to_string(nextIdCounter); // AMB-100
   }
+  
   nextIdCounter++;
 
-  Ambulance newAmbulance(id, driver, "On-Duty");
+  Ambulance newAmbulance(id, driverName, "On-Duty");
   enqueue(newAmbulance);
   
-  std::cout << "Ambulance " << id << " registered" << std::endl;
+  std::cout << "Ambulance " << id << " (" << driverName << ") registered." << std::endl;
+}
+
+void AmbulanceDispatcher::registerAmbulance_Manual(std::string driver) {
+  addNewAmbulance(driver);
+}
+
+void AmbulanceDispatcher::registerAmbulance_Batch(int count) {
+  if (count <= 0) {
+    std::cerr << "Invalid number. Please enter a positive amount." << std::endl;
+    return;
+  }
+  
+  std::cout << "--- Adding " << count << " ambulances ---" << std::endl;
+  for (int i = 0; i < count; i++) {
+    if (isFull()) {
+      std::cerr << "Hangar became full. Added " << i << " ambulances." << std::endl;
+      break;
+    }
+    
+    std::string driver = "Driver " + std::to_string(nextIdCounter);
+    addNewAmbulance(driver);
+  }
+  std::cout << "-----------------------------------" << std::endl;
 }
 
 void AmbulanceDispatcher::rotateAmbulanceShift() {
