@@ -39,11 +39,21 @@ Ambulance AmbulanceDispatcher::dequeue() {
   return frontAmbulance;
 }
 
-void AmbulanceDispatcher::registerAmbulance(std::string id, std::string driver) {
+void AmbulanceDispatcher::registerAmbulance(std::string driver) {
   if (isFull()) {
     std::cerr << "Hanger is full" << std::endl;
     return;
   }
+
+  std::string id = "AMB-";
+  if (nextIdCounter < 10) {
+      id += "00" + std::to_string(nextIdCounter); // AMB-001
+  } else if (nextIdCounter < 100) {
+      id += "0" + std::to_string(nextIdCounter); // AMB-010
+  } else {
+      id += std::to_string(nextIdCounter); // AMB-100
+  }
+  nextIdCounter++;
 
   Ambulance newAmbulance(id, driver, "On-Duty");
   enqueue(newAmbulance);
