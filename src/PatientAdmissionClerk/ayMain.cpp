@@ -4,8 +4,7 @@
 #include "Header/queue/PatientQueue.hpp"
 #include "Header/utils/utils.hpp"
 
-// Individual compile command (directory must be in root folder): g++ -std=c++11 -Wall -Wextra -Isrc/PatientAdmissionClerk/Header src/PatientAdmissionClerk/core/models/Patient.cpp src/PatientAdmissionClerk/core/queue/PatientQueue.cpp src/PatientAdmissionClerk/core/utils/utils.cpp src/PatientAdmissionClerk/main.cpp -o main.exe
-int Main() {
+void ayMain() {
     PatientQueue queue;
     int choice;
     bool running = true;
@@ -126,7 +125,5 @@ int Main() {
             std::cout << "\n\tPress Enter to continue...";
             std::cin.get();
         }
-    }
-    
-    return 0;
+    }   
 }

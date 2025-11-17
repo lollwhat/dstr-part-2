@@ -13,7 +13,7 @@ void showMenu() {
   std::cout << "Enter your choice: ";
 }
 
-int main() {
+int mjMain() {
   AmbulanceDispatcher dispatcher;
   int choice;
   
@@ -56,16 +56,14 @@ int main() {
         std::cout << "------------------------------------" << std::endl;
         break;
       }
-      case 5: { // Exit
-        std::cout << "Shutting down dispatch system." << std::endl;
-        return 0; // Exits the main function and ends the program
+      case 5: { // Back to Main Menu
+        std::cout << "Returning to Main Menu." << std::endl;
+        break;
       }
       default: {
         std::cerr << "Invalid choice. Please try again." << std::endl;
         break;
       }
     }
-  }
-    
-  return 0;
+  }   
 }
