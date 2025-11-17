@@ -1,11 +1,11 @@
-#include "CustomStack.hpp"
+#include "MedicalSupplyManager.hpp"
 #include "medicalSupply.hpp"
 #include <array>
 #include <string>
 #include <iostream>
 #include <limits>
 
-CustomStack<MedicalSupply> supplyStack; //supply id, name, type, quantity, batch
+MedicalSupplyManager<MedicalSupply> supplyStack; //supply id, name, type, quantity, batch
 
 void mainMenu(){
     std::cout << "\n========================================" << std::endl;
@@ -72,7 +72,7 @@ int main(){
                     std::cout << "No supplies in stock." << std::endl;
                 } else {
                     std::cout << "Current Supplies in Stock (Top to Bottom):" << std::endl;
-                    CustomStack<MedicalSupply> tempStack;
+                    MedicalSupplyManager<MedicalSupply> tempStack;
                     while (!supplyStack.isEmpty()) {
                         auto supply = supplyStack.pop();
                         std::cout << "ID: " << supply.id
