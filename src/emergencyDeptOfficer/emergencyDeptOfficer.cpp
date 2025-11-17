@@ -151,7 +151,7 @@ void EmergencyPriorityQueue::processCriticalCase() {
     std::cout << " --- Case Successfully Processed --- " << std::endl;
 }
 
-void EmergencyPriorityQueue::viewPendingCase() {
+void EmergencyPriorityQueue::viewPendingCase() const {
     if (isEmpty()) {
         std::cout << "No pending emergency cases." << std::endl;
         return;
@@ -171,4 +171,8 @@ void EmergencyPriorityQueue::viewPendingCase() {
 
     std::cout << "----------------------------------------------" << std::endl;
 
+}
+
+bool EmergencyPriorityQueue::isEmpty() const {
+    return head == nullptr;
 }
