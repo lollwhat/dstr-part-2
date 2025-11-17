@@ -16,7 +16,7 @@ bool PatientQueue::isEmpty() const {
 
 // Check if queue is full
 bool PatientQueue::isFull() const {
-    return rear == MAX_SIZE - 1;
+    return count == MAX_SIZE;
 }
 
 // Get current size of queue
