@@ -28,11 +28,16 @@ void logNewCase(EmergencyPriorityQueue &queue) {
     std::cout << "Enter Emergency Type ('Fracture', 'Cardiac'): " << std::endl;
     std::getline(std::cin, caseType);
     
-    std::cout << "Enter Case Priority (0~3) (Higher Number = High Priority): " << std::endl;
+    std::cout << "Enter Case Priority (0~5) (Higher Number = High Priority): " << std::endl;
     std::getline(std::cin, input);
 
     try{
         priority = std::stoi(input);
+
+        if (priority < 0 || priority > 5) {
+        std::cout << "Priority is out of range (0-5). Setting to 0." << std::endl;
+        priority = 0;
+    }
     }catch (const std::exception& e) {
         std::cout << "Invalid Priority, setting to 0." << std::endl;
         priority = 0; 
