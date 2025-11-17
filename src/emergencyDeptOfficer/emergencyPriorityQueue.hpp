@@ -1,5 +1,5 @@
-#ifndef LINKEDLIST_HPP
-#define LINKEDLIST_HPP
+#ifndef EMERGENCY_PRIORITY_QUEUE_HPP
+#define EMERGENCY_PRIORITY_QUEUE_HPP
 
 #include <iostream>
 #include <string>

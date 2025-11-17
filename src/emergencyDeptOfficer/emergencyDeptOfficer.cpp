@@ -1,11 +1,13 @@
-#include "LinkedList.hpp"
 #include <iostream>
 #include <string>
 
+#include "emergencyPriorityQueue.hpp"
+#include "emergencyDeptOfficer.hpp"
+
 void showMenu() {  
-    std::cout << "\n ---------------------------------------------------" << std::endl;
-    std::cout << "            EMERGENCY DEPARTMENT OFFICER MENU         " << std::endl;
-    std::cout << "   ---------------------------------------------------" << std::endl;
+    std::cout << "\n---------------------------------------------------" << std::endl;
+    std::cout << "           EMERGENCY DEPARTMENT OFFICER MENU         " << std::endl;
+    std::cout << " ---------------------------------------------------" << std::endl;
     std::cout << "1. Log Emergency Case\n";
     std::cout << "2. Process Most Critical Case\n";
     std::cout << "3. View Pending Emergency Cases\n";
