@@ -28,11 +28,9 @@ class EmergencyPriorityQueue {
 
     void processCriticalCase();
 
-    void viewPendingCase();
+    void viewPendingCase() const;
 
-    bool isEmpty() {
-        return head == nullptr;
-    }
+    bool isEmpty() const;
 };
 
 #endif
