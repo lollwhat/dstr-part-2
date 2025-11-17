@@ -50,8 +50,8 @@ int main() {
     std::cout << "| Features:                                                                                            |" << std::endl;
     std::cout << "| ‣ [1] [Queue] Patient Admission Clerk     : Lee Aik Yen (TP070648)                                   |" << std::endl;
     std::cout << "| ‣ [2] [Stack] Medical Supply Manager      : Lee Chen Wei (TP069059)                                  |" << std::endl;
-    std::cout << "| ‣ [3] [Priority Q] Emergency Dept Officer : Soo Chee Yang (TP071405)                                 |" << std::endl;
-    std::cout << "| ‣ [4] [Circular Q] Ambulance Dispatcher   : Lee Ming Jia (TP070850)                                  |" << std::endl;
+    std::cout << "| ‣ [3] [Priority Queue] Emergency Dept Officer : Soo Chee Yang (TP071405)                             |" << std::endl;
+    std::cout << "| ‣ [4] [Circular Queue] Ambulance Dispatcher   : Lee Ming Jia (TP070850)                              |" << std::endl;
     std::cout << "+------------------------------------------------------------------------------------------------------+" << std::endl;
     std::cout << "| [5]  Exit Program                                                                                    |" << std::endl;
     std::cout << "+------------------------------------------------------------------------------------------------------+" << std::endl;
