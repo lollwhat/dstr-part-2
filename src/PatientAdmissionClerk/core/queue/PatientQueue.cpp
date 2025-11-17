@@ -16,7 +16,7 @@ bool PatientQueue::isEmpty() const {
 
 // Check if queue is full
 bool PatientQueue::isFull() const {
-    return count == MAX_SIZE;
+    return rear == MAX_SIZE - 1;
 }
 
 // Get current size of queue
@@ -27,28 +27,33 @@ int PatientQueue::size() const {
 // Add patient to the rear of queue (Enqueue operation)
 bool PatientQueue::enqueue(const Patient& patient) {
     if (isFull()) {
-        return false;  // Queue overflow
+        return false;
     }
-    
-    // Add patient to rear
-    rear = (rear + 1) % MAX_SIZE;
+
+    rear++;
     queue[rear] = patient;
     count++;
-    
     return true;
 }
 
 // Remove and return patient from front of queue (Dequeue operation)
 bool PatientQueue::dequeue(Patient& patient) {
     if (isEmpty()) {
-        return false;  // Queue underflow
+        return false;
     }
-    
-    // Get patient from front
+
+    // Get front patient
     patient = queue[front];
-    front = (front + 1) % MAX_SIZE;
+
+    // Shift all elements to the left by 1
+    for (int i = 0; i < rear; i++) {
+        queue[i] = queue[i + 1];
+    }
+
+    // Update rear and count
+    rear--;
     count--;
-    
+
     return true;
 }
 
@@ -57,7 +62,7 @@ bool PatientQueue::peek(Patient& patient) const {
     if (isEmpty()) {
         return false;
     }
-    
+
     patient = queue[front];
     return true;
 }
