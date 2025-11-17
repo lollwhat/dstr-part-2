@@ -1,7 +1,7 @@
 #ifndef PATIENTQUEUE_HPP
 #define PATIENTQUEUE_HPP
 
-#include "models/Patient.hpp"
+#include "../models/Patient.hpp"
 #include <string>
 
 class PatientQueue {

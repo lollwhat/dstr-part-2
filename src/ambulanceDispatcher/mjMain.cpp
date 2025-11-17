@@ -3,7 +3,7 @@
 #include <limits>
 #include "AmbulanceDispatcher.hpp"
 
-void showMenu() {
+void showMJMenu() {
   std::cout << "\n--- 🚑 Hospital Ambulance Dispatch ---" << std::endl;
   std::cout << "1. Register Ambulance (Manual)" << std::endl;
   std::cout << "2. Register Ambulances (Batch)" << std::endl;
@@ -13,12 +13,12 @@ void showMenu() {
   std::cout << "Enter your choice: ";
 }
 
-int mjMain() {
+void mjMain() {
   AmbulanceDispatcher dispatcher;
   int choice;
   
   while (true) {
-    showMenu();
+    showMJMenu();
     std::cin >> choice;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     
@@ -58,7 +58,7 @@ int mjMain() {
       }
       case 5: { // Back to Main Menu
         std::cout << "Returning to Main Menu." << std::endl;
-        break;
+        return;
       }
       default: {
         std::cerr << "Invalid choice. Please try again." << std::endl;
