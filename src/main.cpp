@@ -1,6 +1,6 @@
 #include <iostream>
 #include "./PatientAdmissionClerk/ayMain.hpp" // Lee Aik Yen
-// #include "./medicalSupplyManager/medicalSupplyManager.hpp" // Lee Chen Wei
+#include "./medicalSupplyManager/cwMain.hpp" // Lee Chen Wei
 #include "./emergencyDeptOfficer/emergencyDeptOfficer.hpp" // Soo Chee Yang
 #include "./ambulanceDispatcher/mjMain.hpp" // Lee Ming Jia
 
@@ -66,7 +66,7 @@ int main() {
       break;
     case 2:
       std::cout << "\nLaunching: Medical Supply Management..." << std::endl;
-      // medicalSupplyManager();
+      cwMain();
       break;
     case 3:
       std::cout << "\nLaunching: Emergency Department System..." << std::endl;

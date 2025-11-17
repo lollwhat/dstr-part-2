@@ -1,4 +1,4 @@
-#include "MedicalSupplyManager.hpp"
+#include "medicalSupplyManager.hpp"
 #include "medicalSupply.hpp"
 #include <array>
 #include <string>
@@ -29,7 +29,7 @@ int getMenuChoice(){
     return choice;
 }
 
-int main(){
+void cwMain(){
     int choice = -1;
     while(choice != 0){
         mainMenu();
@@ -90,7 +90,7 @@ int main(){
             }
             case 0:{
                 std::cout << "Exiting Medical Supply Manager." << std::endl;
-                break;
+                return;
             }
             default:{
                 std::cout << "Invalid choice. Please enter a number between 0 and 3." << std::endl;
@@ -98,6 +98,4 @@ int main(){
             }
         }
     }
-
-    return 0;
 }
